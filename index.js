@@ -5,12 +5,14 @@ for(var i=0;i<button.length;i++){
     drum.addEventListener("click",function(){
         var buttonhtml=this.innerHTML;
         makesound(buttonhtml);
+        buttonanimation(buttonhtml);
 
     });
 }
 
 document.addEventListener("keydown", function(event){
     makesound(event.key);    
+    buttonanimation(event.key);
 });
 
 function makesound(key){
@@ -60,8 +62,13 @@ function makesound(key){
 }
 
 
-//personal exercise 
 
+function buttonanimation(currkey){
+    var activebut=document.querySelector("."+currkey);
+    activebut.classList.add("pressed");
+    setTimeout(function(){
+        activebut.classList.remove("pressed");
+    }, 200);
+}
 
-//keydown instead of keypress
 
